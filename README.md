@@ -1,5 +1,5 @@
 ## Dotfiles
-###### Collection of my config files I use. It's hobby to learn more about Coding. If you have any suggestions, ideas, or issue. Create Issue/Pull Request, happy to learn more.
+###### Collection of my config files I use. If you have any suggestions, ideas, or issue. Create Issue/Pull Request, happy to learn more.
 
 <p align="center">
 	<img src="https://github.com/niraj998/niraj998/blob/main/assets/dots/Screenshot.png" align="right" width="400px">
