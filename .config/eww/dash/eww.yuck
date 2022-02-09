@@ -1,0 +1,236 @@
+
+;;; ┬ ┬┬┌┬┐┌─┐┌─┐┌┬┐┌─┐
+;;; ││││ │││ ┬├┤  │ └─┐
+;;; └┴┘┴─┴┘└─┘└─┘ ┴ └─┘
+
+;; <-- Background -->
+(defwidget bgblur []
+	(box 	:class "bg" 
+	(button	:onclick "./launch.sh" 
+	(image	:path "${bg}"	:image-width wid	:image-height hig))))
+
+(defvar	bg "../images/teal.jpg")
+(defpoll wid 	:interval "50h"	 "../scripts/res --w1")
+(defpoll hig 	:interval "50h"	  "../scripts/res --h1")
+
+;; <-- Profile -->
+(defwidget profile []
+	(box	:orientation "v" :spacing 15 :space-evenly "false" :valign "center" :tooltip "Profile" :class "Uifont"
+	(image	:path "${IMAGE}" :image-width "200" :image-height "200")
+  (label	:class "green"	 :text "Niraj")))
+
+(defvar	IMAGE "../images/profile.png")
+
+;; <-- Monitors -->
+(defwidget monitors [] 
+	(box	  :space-evenly "false" :halign "center" :orientation "h" :spacing 20 :class "monitorfont"
+	(button :class "yellow"		:tooltip "Laptop"	:onclick "../scripts/screen laptop" "󰌢")
+	(button :class "pink"	:tooltip "Monitor"	:onclick "../scripts/screen monitor" "󰍹")
+	(button :class "purple"	:tooltip "DualScreen"	:onclick "../scripts/screen dual" "󰍺")
+	(button :class "blue"	:tooltip "Nightlight"	:onclick "../scripts/redshift on" 	:onrightclick "../scripts/redshift off"	"󰖔")))
+
+;; <-- Time -->
+(defwidget time [] 	
+	(box	:orientation "v" :space-evenly "false"
+	(box	:orientation "h" :space-evenly "false" :spacing 15 :halign "center" :class "timefont"
+	(label	:class "green"	 :text hr)
+	(label	:class "teal"	 :text ":")
+	(label	:class "green" :text min))
+	(label	:class "dayfont" 	 :text dy)
+	(label	:class "daydate" 	 :text dt)))
+
+(defpoll hr		:interval "1h"  "date +\"%H\"")
+(defpoll min		:interval "1m"  "date +\"%M\"")
+(defpoll dy		:interval "24h"  "date +\"%A\"")
+(defpoll dt		:interval "24h"  "date +\"%d/%m/%Y\"")
+
+;; <-- System -->
+(defwidget system [] 
+	(box	:orientation "h"	:spacing 30	 :halign "center" :valign "center" :class "sysfont"
+	(box	:class "cpubar"		:orientation "v" :spacing 15	  :space-evenly "false" :tooltip "${cpu}%"
+	(scale	:orientation "v"	:flipped "true"  :min 0		  :max 100		:value cpu		:active "false")
+	(label	:class "yellow" :text "󰍛"))
+	(box	:class "rambar"		:orientation "v" :spacing 15	  :space-evenly "false" :tooltip "${ram}%"
+	(scale	:orientation "v"	:flipped "true"  :min 0		  :max 100		:value ram		:active "false")
+	(label	:class "pink" :text "󰘚"))
+	(box	:class "brightnessbar" 	:orientation "v" :spacing 15	  :space-evenly "false" :tooltip "${bright}"
+	(scale	:orientation "v" 	:flipped "true"  :min 1  	  :max 101		:value bright	:onchange "xbacklight -set {}")
+	(label	:class "purple" 	:text "󰃝"))
+	(box	:class "volumebar" 	:orientation "v" :spacing 15	  :space-evenly "false" :tooltip "${volume}%"
+	(scale	:orientation "v" 	:flipped "true"  :min 0 	  :max 151		:value volume		:onchange "pamixer --allow-boost --set-volume {}")
+	(label	:class "blue" 	:text "󰕾"))
+	(box	:class "batterybar"	:orientation "v" :spacing 15	  :space-evenly "false" :tooltip "${battery}%"
+	(scale	:orientation "v"	:flipped "true"  :min 0 	  :max 100		:value battery :active "false")
+	(label	:class "green"	:text "󰂁"))))
+
+(defpoll cpu 		:interval "1s"  "../scripts/cpu")
+(defpoll ram 		:interval "1s"  "../scripts/ram")
+(defpoll bright		:interval "15m"  "../scripts/sbbri")
+(defpoll battery	:interval "5m"  "../scripts/sbbat percent")
+(defpoll volume 	:interval "1s"  "../scripts/sbvol val")
+
+;; <-- Music -->
+(defwidget music [] 
+	(box	:orientation "h"
+	(box	:class "albumart" :vexpand "false" :hexpand "false" :style "background-image: url('${art}');")
+	(box	:orientation "v" :valign "top" :space-evenly "false" :class "musicfont" :spacing 10
+  (box :space-evenly "false" :orientation "v" :spacing 3
+  (label	:class "title"		:limit-width 15 		:text title )
+	(label	:class "album"		:limit-width 15			:text album)
+	(label	:class "artist"		:limit-width 15			:text artist))
+	(box	:orientation "h"	:class "playerfont" 
+	(button	:class "green" 		:onclick "../scripts/music previous" "󰒮")
+	(button	:class "purple"		:onclick "../scripts/music toggle" playpause)
+	(button	:class "green" 		:onclick "../scripts/music next" "󰒭")))))
+
+(defpoll title		:interval "1s"  "../scripts/music title")
+(defpoll artist		:interval "1s"  "../scripts/music artist")
+(defpoll album		:interval "1s"  "../scripts/music album")
+(defpoll playpause	:interval "1s"  "../scripts/music statusicon")
+(defpoll art		:interval "1s"  "../scripts/music coverloc")
+
+;; <-- Directories -->
+(defwidget directory [] 
+	(box	:orientation "v"	:space-evenly "false" :valign "center" :class "dirfont"
+	(box	:orientation "h" :space-evenly "false" :spacing 14 :class "dffree" :halign "center"
+	(button	:class "green" 		:onclick "../scripts/popup Fm" "󰋊")
+	(label	:class "white" :text "|")
+	(label	:class "white"		:limit-width 25		:text frspce))
+	(button	:onclick "../scripts/popup Doc" 
+	(label :class "yellow" :text "Documents"))
+	(button	 :onclick "../scripts/popup Dow" 
+	(label :class "pink" :text "Downloads" ))
+	(button		:onclick "../scripts/popup Msc" 
+	(label :class "purple" :text "Music"))
+	(button		:onclick "../scripts/popup Pic" 
+	(label :class "blue" :text "Pictures"))
+	(box	:orientation "h"	:spacing 30 :class "mntfont" :space-evenly "false" :halign "center"
+	(button :class "blue"		:onclick "../scripts/popup bkp" "󰁯")
+	(button :class "green"	:onclick "../scripts/popup  cell" "󰑞")
+	(button :class "purple"	:onclick "../scripts/popup usb" "󱊞"))))
+
+(defpoll frspce		:interval "12h"  "df -h / | awk '{print $4}' | tail -n 1 | sed 's/G/GB/'")
+
+;; <-- Power -->
+(defwidget power [] 
+	(box :orientation "v" :space-evenly "false" :valign "center" :spacing 30 :class "powericon" 
+	(button :class "red"	:onclick "shutdown now" "󰐥")
+	(button	:class "yellow"	:onclick "reboot" "󰦛")
+	(button	:class "pink"		:onclick "killall bspwm" "󰍃")
+	(button	:class "purple"		:onclick "betterlockscreen -l" "󰍁")))
+
+;; <-- Search -->
+(defwidget search [] 
+	(box :class "iconfont"
+  (button			:onclick "../scripts/popup srch" 
+  (label :class "green" :text "󰑣" ))))
+
+;; <-- Weather -->
+(defwidget weather [] 
+  (box :orientation "h" :space-evenly "false" :spacing 25
+	(label	:class "weathicon"	:text weathericon)
+  (box	:orientation "v"	:space-evenly "false" :spacing 5 :valign "center" :halign "end"
+	(label	:class "weathtemp"		:text "${tempt}°C")
+	(label	:class "weathdesc" :wrap "true"		:text descr))))
+
+(defpoll weathericon :interval "12h" "cat /tmp/weather/icon")
+(defpoll tempt :interval "12h" "cat /tmp/weather/temp" )
+(defpoll descr :interval "12h" "cat /tmp/weather/description")
+
+;; <-- Updates -->
+(defwidget update [] 
+	(box	:orientation "h"  :class "iconfont" :space-evenly "false"
+	(button	:class "upicon"	:onclick "../scripts/popup up"	 "󰳡")
+	(label	:class "updates"		:text update)))
+
+(defpoll update		:interval "12h"  "../scripts/update")
+
+;; <-- Traffic -->
+(defwidget speedmeter [] 
+	(box	:orientation "h" :class "iconfont"
+	(label	:class "green" :halign "left" :text "󰖟")
+	(box	:orientation "v"	:space-evenly "false" :valign "center" :spacing 10 :class "Uifont"
+	(label	:class "blue"		:wrap "true" 		:limit-width 25  :text "${download}󰇚")
+	(label	:class "blue"			:wrap "true" 		:limit-width 25  :text "${upload}󰕒"))))
+
+(defpoll download	:interval "1s"  "../scripts/netstat down")
+(defpoll upload		:interval "1s"  "../scripts/netstat up")
+
+;; <-- Shortcuts -->
+(defwidget shortcuts [] 
+	(box	  :valign "center" :orientation "v" :class "iconfont" :space-evenly "false" :spacing 10
+	(button :class "blue"	:tooltip "DualScreen"	:onclick "../scripts/popup lib" "󰌱")
+ 	(button :class "white"		:tooltip "Laptop"	:onclick "../scripts/popup git" "󰊤")
+	(button :class "orange"	:tooltip "Monitor"	:onclick "../scripts/popup reddit" "󰑍")
+	(button :class "green"	:tooltip "DualScreen"	:onclick "../scripts/popup spot" "󰓇")
+	(button :class "red"	:tooltip "Nightlight"	:onclick "../scripts/popup youtube" 	"󰗃")))
+
+(defpoll quotes		:interval "12h"  "../scripts/quotes")
+
+;; <-- Adblock -->
+(defwidget adblock []
+	(box :orientation "h" :halign "center" :valign "center" :class "iconfont"
+	(button :class "pink" :onclick "sudo ../scripts/adblock"  adblock)))
+
+(defpoll adblock	:interval "12h"  "../scripts/adblock icon")
+
+;;; ┬ ┬┬┌┐┌┌┬┐┌─┐┬ ┬┌─┐
+;;; │││││││ │││ ││││└─┐
+;;; └┴┘┴┘└┘─┴┘└─┘└┴┘└─┘
+
+(defwindow profile 
+	:geometry (geometry :x 171 :y 128 :width 250 :height 300)
+	(profile))
+
+(defwindow monitors 
+	:geometry (geometry :x 171 :y 438 :width 250 :height 55)
+	(monitors))
+
+(defwindow time 
+	:geometry (geometry :x 171 :y 503 :width 250 :height 137)
+	(time))
+
+(defwindow system 
+	:geometry (geometry :x 431 :y 128 :width 300 :height 300)
+	(system))
+
+(defwindow music 
+	:geometry (geometry :x 431 :y 438 :width 400 :height 202)
+	(music))
+	
+(defwindow directory 
+	:geometry (geometry :x 841 :y 340 :width 251 :height 300)
+	(directory))
+
+(defwindow power
+	:geometry (geometry :x 1102 :y 341 :width 93 :height 299)
+	(power))
+
+(defwindow shortcuts
+	:geometry (geometry :x 741 :y 128 :width 90 :height 300)
+	(shortcuts))
+
+(defwindow update 
+	:geometry (geometry :x 841 :y 232 :width 90 :height 98)
+	(update))
+
+(defwindow speedmeter 
+	:geometry (geometry :x 941 :y 232 :width 152 :height 98)
+	(speedmeter))
+
+(defwindow search 
+	:geometry (geometry :x 841 :y 128 :width 90 :height 95)
+	(search))
+
+(defwindow weather
+	:geometry (geometry :x 941 :y 128 :width 254 :height 95)
+	(weather))
+
+(defwindow adblock 
+	:geometry (geometry :x 1103 :y 232 :width 92 :height 98)
+	(adblock))
+
+(defwindow bgblur 
+	:geometry (geometry :x 0 :y 0 :width 0 :height 0 )
+	(bgblur))
+

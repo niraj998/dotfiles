@@ -1,0 +1,7 @@
+#!/bin/bash
+
+Song="$(~/.local/bin/music title)"
+Artist="$(~/.local/bin/music artist)"
+Playlist="$(~/.local/bin/music playlist)"
+
+dunstify -i $(~/.local/bin/music coverloc) "($Playlist)$Song" "$Artist"

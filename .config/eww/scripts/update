@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+arch=$(checkupdates 2> /dev/null | wc -l );
+[ -z "$updates_arch" ] && updates_arch=0
+
+aur=$(checkupdates-aur 2> /dev/null | wc -l)
+[ -z "$updates_aur" ] && updates_aur=0
+
+updates=$((arch + aur))
+
+if [ "$1" = "Up" ]; then
+	echo "Updates available for $updates Packages"
+  sleep 2
+	echo "Updating..."
+	yay -Syu && echo "Updated Successfully" || echo "Failed"
+	echo "press <Enter> to exit"
+	read -r _
+
+else
+	echo "$updates"
+fi
+

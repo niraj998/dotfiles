@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $1 in
+  up)
+  xbacklight -inc 1
+  ;;
+  down)
+# Screen goes completely black at 0 this is to prevent that stop at 1
+  [ "$(xbacklight -get | cut -d "." -f 1 )" -le "2" ] && exit || xbacklight -dec 1 
+esac
+
+xbacklight -get | cut -d "." -f 1

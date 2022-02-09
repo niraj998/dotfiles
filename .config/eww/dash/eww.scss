@@ -1,0 +1,257 @@
+
+
+
+// Import Colors from Theme Folder
+
+// Import Theme
+@import "../Themes/colors.scss";
+
+// I just replaced colors with colors from colorschemes. Require configuring to look good.
+// @import "../Themes/Nord.scss";
+// @import "../Themes/Catppuccin.scss";
+// @import "../Themes/Tokyonight.scss";
+// @import "../Themes/Gruvbox.scss";
+
+// Everything
+* {
+all: unset;
+background-color: $black;
+font-family: $iconfont;
+}
+
+button {
+border: 0px;
+background: none;
+}
+
+.Uifont {
+font-family: $dashfont;
+font-size: 20;
+color: $white;
+}
+
+.iconfont {
+color: $purple;
+font-size: 46;
+}
+
+// Colors
+.red {
+color: $red;
+font-family: $dashfont;
+}
+
+.blue {
+color: $blue;
+font-family: $dashfont;
+}
+
+.green {
+color: $green;
+font-family: $dashfont;
+}
+
+.pink {
+color: $pink;
+font-family: $dashfont;
+}
+
+.orange {
+color: $orange;
+font-family: $dashfont;
+}
+
+.yellow {
+color: $yellow;
+font-family: $dashfont;
+}
+
+.purple {
+color: $purple;
+font-family: $dashfont;
+}
+
+.teal {
+color: $teal;
+font-family: $dashfont;
+}
+
+.white {
+color: $white;
+font-family: $dashfont;
+}
+
+
+// Monitor
+.monitorfont {
+font-size: 35;
+}
+
+// Time-Day
+.timefont {
+font-family: $dashfont;
+margin-top: 15px;
+font-size: 40;
+}
+
+.dayfont {
+font-family: $dashfont;
+color: $blue;
+font-size: 20;
+}
+
+.daydate {
+font-family: $dashfont;
+color: $pink;
+font-size: 25;
+}
+
+
+
+// Power
+.powericon {
+  font-size: 40;
+}
+
+// update
+.upicon {
+font-size: 45;
+padding-left: 10px;
+color: $blue;
+}
+
+
+.updates {
+  font-family: $dashfont;
+  padding-left: 5px;
+  font-size: 28;
+  color: $white;
+
+}
+
+// Date
+
+.weathicon {
+font-family: FiraCode Nerd Font;
+margin-left: 15;
+font-size: 60;
+color: $green;
+}
+.weathtemp {
+font-family: $dashfont;
+font-size: 25;
+margin-left: 20;
+color: $blue;
+}
+.weathdesc {
+font-family: $dashfont;
+font-size: 18;
+margin-left: 20;
+color: $pink;
+}
+
+
+// Folders
+.dffree {
+font-family: $dashfont;
+font-size: 35;
+margin-bottom: 20px;
+}
+
+.dirfont {
+font-family: $dashfont;
+font-size: 25;
+}
+
+.mntfont {
+margin-top: 15;
+font-size: 35;
+}
+
+// Music
+.musicfont {
+font-family: $dashfont;
+font-size: 24;
+margin-top: 25px;
+}
+
+.playerfont {
+margin-top: 10px;
+font-size: 45;
+}
+
+.albumart {
+background-size: cover;
+background-position: center;
+min-height: 130px;
+min-width: 130px;
+margin: 12px;
+border-radius: 15px;
+}
+
+.title {
+font-family: $dashfont;
+font-size:  24;
+color: $green;
+}
+
+.artist {
+font-family: $dashfont;
+font-size:  20;
+color: $pink;
+}
+.album {
+font-family: $dashfont;
+font-size:  18;
+color: $blue;
+}
+
+
+// background
+.bg {
+opacity: 0.5;
+}
+
+// Sys
+.sysfont {
+font-size: 28;
+}
+
+.cpubar, .rambar, .batterybar, .brightnessbar, .volumebar, scale trough {
+all: unset;
+background-color: $black1; 
+border-radius: 20px;
+min-height: 170px;
+min-width: 15px;
+}
+
+.cpubar, .rambar, .batterybar, .brightnessbar, .volumebar, scale trough highlight {
+all: unset;
+border-radius: 20px;
+}
+
+.cpubar scale trough highlight {
+background-color: $yellow;
+}
+
+.rambar scale trough highlight {
+background-color: $pink;
+}
+.brightnessbar scale trough highlight {
+background-color: $purple;
+}
+
+.volumebar scale trough highlight {
+background-color: $blue;
+}
+
+.batterybar scale trough highlight {
+background-color: $green; 
+}
+
+.cpubar, .rambar, .brightnessbar, .volumebar, .batterybar  slider {
+border: 0px;
+min-height: 0px;
+min-width: 0px;
+}
+

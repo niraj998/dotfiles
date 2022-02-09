@@ -1,0 +1,19 @@
+#!/bin/sh
+
+X1=$(xrandr --current | grep '*' | awk '{print $1}' | cut -d 'x' -f1 | head -n 1)
+Y1=$(xrandr --current | grep '*' | awk '{print $1}' | cut -d 'x' -f2 | head -n 1)
+
+X2=$(xrandr --current | grep '*' | awk '{print $1}' | cut -d 'x' -f1 | tail -n 1)
+Y2=$(xrandr --current | grep '*' | awk '{print $1}' | cut -d 'x' -f2 | tail -n 1)
+
+
+
+if [ "$1" = "--w1"  ]; then
+echo "$X1"
+elif [ "$1" = "--h1" ]; then
+echo "$Y1"
+elif [ "$1" = "--w2" ]; then
+echo "$X2"
+elif [ "$1" = "--h2" ]; then
+echo "$Y2"
+fi

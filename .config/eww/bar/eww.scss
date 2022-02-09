@@ -1,0 +1,138 @@
+* {
+all: unset;
+}
+
+window {
+background: $black;
+}
+
+button {
+border: 0px;
+background: none;
+}
+
+/************* workspaces ***********/
+.works {
+background-color: $black1;
+padding: 2px 5px 2px 5px;
+border-radius: 8px 8px 8px 8px;
+}
+
+/* unoccupied */
+.0 {
+color: $grey;
+}
+/* occupied */
+.01, .02, .03, .04, .05, .06, .07, .08, .09, .00, {
+color: $white;
+}
+
+/* focused */
+
+.011, .066, {
+color: $orange;
+}
+.022, .077 {
+color: $purple;
+}
+.033, .088 {
+color: $yellow;
+}
+.044, .099 {
+color: $green;
+}
+.055, .000 {
+color: $blue;
+}
+
+
+.iconfont {
+font-family:  $iconfont;
+font-size: 22;
+}
+
+.fnt {
+font-family: $font;
+font-size: 18;
+color: $white;
+}
+
+.blue {
+color: $blue;
+}
+
+.pink {
+color: $pink;
+}
+
+.green {
+color: $green;
+}
+.yellow {
+color: $yellow;
+}
+.orange {
+color: $orange;
+}
+.red {
+color: $red;
+}
+
+.backgrnd {
+background-color: $black1;
+border-radius: 10px 10px 10px 10px;
+padding: 1px 5px 1px 5px;
+margin: 0rem .05rem 0rem .05rem;
+}
+
+.control {
+font-family: $iconfont;
+font-size: 20;
+background-color: $black1;
+border-radius: 10px 10px 10px 10px;
+}
+
+.powermenu {
+font-family:  $iconfont;
+font-size: 20;
+background-color: $black1;
+border-radius: 10px 10px 10px 10px;
+}
+
+.stime {
+font-family: $iconfont;
+font-size: 18;
+background-color: $black1;
+border-radius: 10px 10px 10px 10px;
+}
+
+// Calendar
+.calbox {
+  background-color: $black;
+  font-family: $font;
+  font-size: 1em;
+  font-weight: bold;
+
+  .calinbox {
+      padding: 1rem 1rem .2rem;
+
+      .cal {
+          &.highlight {
+              padding: 10rem;
+          }
+
+          padding: .8rem .25rem 0rem;
+          margin-left: 10px;
+      }
+  }
+}
+
+calendar.header {
+color: $blue;
+font-weight: bold;
+}
+
+calendar.button, .highlight  {
+color: $green;
+}
+

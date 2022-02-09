@@ -1,0 +1,116 @@
+#!/bin/sh
+
+#author   niraj
+#github   niraj998
+
+USB() {
+  echo "Mounting/Unmounting Partitions to (~/mnt/USB)"
+  echo "Available Partitions:"
+  lsblk -po "name,size,mountpoint"  
+  echo "Mount/Unmount [1/2] :" && read chk
+
+case $chk in
+	2)
+	echo "Note: 1. Type full name of partition (/dev/...)"
+	echo "Partition Name:" && read par
+	sudo umount -l $par && echo "Unmounted Successfully" && sleep 1
+	echo "Press <Enter> to exit."
+	read -r _
+
+	;;
+
+	1)
+	echo "Note: 1. Type full name of partition (/dev/...)"
+	echo "Partition Name:" && read par
+	sudo mount $par ~/mnt/USB && echo "Mounted Successfully" && sleep 1
+	echo "Press <Enter> to exit."
+	read -r _
+esac
+}
+
+Cell() {
+
+echo "Mounting/Unmounting Android using simple-mtpfs to (~/mnt/Cell)"
+echo "Mount/Unmount [1/2] :" && read chk
+
+case $chk in
+	2)
+	if [ -z $(simple-mtpfs -l) ]; then 
+		echo "no Device found, exiting"
+		sleep 2
+		exit
+	else
+		echo "Unmounting $(simple-mtpfs -l | cut -d ":" -f2)"
+		sleep 3
+	fi
+	
+	fusermount -u ~/mnt/Cell && echo "Done.. Closing" && sleep 2 && exit
+	echo "Something went wrong" 
+	sleep 15
+
+
+	;;
+
+	1)
+	echo "Make sure your phone is connected
+	Note:
+	1. Connects/Disconnects 1st device. (disconnect others) 
+	2. Make sure screen is on, you'll be prompted to allow access.
+	3. If doesn't get mounted don't disconnect your phone run this script again."
+	if [ -z $(simple-mtpfs -l) ]; then 
+		echo "no Device found, exiting"
+		echo "press <Enter> to exit"
+		read -r _ && exit
+	else
+		echo "Mounting $(simple-mtpfs -l | cut -d ":" -f2) to ~/mnt/Cell"
+		sleep 3
+	fi
+	simple-mtpfs --device 1 ~/mnt/Cell && echo "Mounted Successfully" && echo "press <Enter> to exit" && read -r _ && exit
+	echo "Check your phone and Allow Access, press <Enter> when you're done."
+	read -r _
+	simple-mtpfs --device 1 ~/mnt/Cell && echo "Mounted Successfully" && echo "Press <Enter> to exit" && read -r _ && exit 
+	echo "Failed to mount, try running simple-mtpfs mannually"
+	echo "press <Enter> to exit." 
+	read -r _
+esac
+}
+
+Bkp() {
+
+	[ -z $(ls ~/mnt/Cell) ] && notify-send "Nothing to backup phone not mounted" && exit
+echo "Backingup Music Files"
+sleep 3
+rsync -auv ~/mnt/Cell/Music/ ~/media/Music && music="Successfully Backedup Music Files" || music="Something went wrong while backing up Music Files" 
+
+echo "Backingup Whatsapp Files"
+sleep 3
+rsync -auv ~/mnt/Cell/Android/media/com.whatsapp/WhatsApp/ ~/media/Backup/Whatsapp && whatsapp="Successfully Backedup Whatsapp Files" || whatsapp="Something went wrong while backing up Whatsapp Files" 
+
+
+echo "Backingup Pictures Files"
+sleep 3
+rsync -auv ~/mnt/Cell/DCIM/ ~/media/Backup/DCIM  && camera="Successfully Backedup Camera Files" || camera="Something went wrong while backing up Camera Files" 
+rsync -auv ~/mnt/Cell/Pictures/ ~/media/Backup/Pictures  && pictures="Successfully Backedup Pictures Files" || pictures="Something went wrong while backing up Pictures Files" 
+
+echo "Backingup Documents Files"
+sleep 3
+rsync -auv ~/mnt/Cell/Documents/ ~/media/Backup/Documents && documents="Successfully Backedup Documents Files" || documents="Something went wrong while backing up Documents Files" 
+
+echo "
+$music
+$whatsapp
+$camera
+$pictures
+$documents
+"
+echo "Press <Enter> to exit."
+read -r _
+}
+
+if [ "$1" = "cell" ]; then
+	Cell
+elif [ "$1" = "usb" ]; then
+	USB
+elif [ "$1" = "bkp" ]; then
+	 Bkp
+fi 2>/dev/null

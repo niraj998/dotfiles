@@ -1,0 +1,65 @@
+#! /bin/sh
+
+color0=#2FFFE3
+color1=#db005f
+color2=#fee440
+color3=#05e289
+color4=#D8DEE9
+
+# workspaces
+bspc monitor eDP1 -d 1 2 3 4 5
+bspc monitor HDMI1 -d 6 7 8 9 0
+
+# Window Gaps and Padding
+bspc config border_width        0
+bspc config top_padding         0
+bspc config right_padding       0
+bspc config left_padding        0
+bspc config bottom_padding      0
+bspc config window_gap          5
+bspc config top_monocle_padding  0
+bspc config right_monocle_padding 0
+bspc config left_monocle_padding 0
+bspc config bottom_monocle_padding 0
+
+# Some more BSPWM things
+bspc config focused_border_color "$color3"
+bspc config normal_border_color  "$color1"
+bspc config active_border_color  "$color2"
+bspc config presel_feedback_color "$color4"
+bspc config split_ratio          0.60
+bspc config borderless_monocle   true  
+bspc config gapless_monocle      false
+bspc config focus_follows_pointer true
+
+# Keys
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# Wallpaper
+feh -z --bg-scale ~/Pictures/Wallpapers/ &
+
+# Bar
+eww --restart open bar0 &&
+eww open bar1 &
+
+# Start Gestures
+libinput-gestures-setup start &
+
+# Notifications
+dunst &
+
+# Compositor
+pgrep -x picom >/dev/null || picom &
+
+# Focus on 1st workspace
+bspc desktop -f ^1 &
+
+# Music player daemon
+mpd &
+
+# Enable window swallowing
+pgrep bspswallow || sh ~/.local/bin/bspswallow &
+
+# fix cursor
+xsetroot -cursor_name left_ptr
+

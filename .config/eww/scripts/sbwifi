@@ -1,0 +1,39 @@
+#!/bin/sh
+
+wifiicon() {
+[ $(cat /sys/class/net/w*/operstate) = down ] && echo 󰤭 && exit
+
+wifi="$(awk '/^\s*w/ { print  int($3 * 100 / 70) }' /proc/net/wireless)"
+
+if [ "$wifi" -gt "80" ]; then
+	icon="󰤨"
+elif [ "$wifi" -gt "60" ]; then
+	icon="󰤥"
+elif [ "$wifi" -gt "40" ]; then
+	icon="󰤢"
+elif [ "$wifi" -gt "20" ]; then
+	icon="󰤟"
+else
+        echo 󰤯 && exit
+fi
+echo "$icon"
+}
+
+wifiname() {
+nmcli | grep "^wl" | sed 's/\ connected\ to\ //g' | cut -d ':' -f2
+}
+
+wiredicon() {
+  [ "$(cat /sys/class/net/e*/operstate)" = "up" ] && echo 󰈀 
+}
+wiredname() {
+nmcli | grep "^enp" | sed 's/\ connected\ to\ /Connected\ to\ /g' | cut -d ':' -f2
+}
+
+
+[ "$1" = "icon" ] && wifiicon && exit
+[ "$1" = "name" ] && wifiname && exit
+[ "$1" = "wired" ] && wiredicon && exit
+[ "$1" = "wname" ] && wiredname && exit
+
+

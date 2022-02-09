@@ -1,0 +1,50 @@
+#!/bin/sh
+
+screenshotdir=~/media/Pictures/Screenshots
+file=$screenshotdir/$(date '+%y%m%d-%H%M-%S').png
+icon=/usr/share/icons/Papirus/128x128/devices/camera-photo.svg
+
+case $1 in
+	area)
+	if [ "$2" = "copy" ]; then 
+	notify-send -i $icon --urgency low 'Select Area'
+	maim -u -m 5 -s | xclip -selection clipboard -t image/png && notify-send -i $icon --urgency low 'Screenshot copied' || notify-send -i $icon 'failed to take screenshot'
+	else 
+	notify-send -i $icon --urgency low 'Select Area'
+	maim -u -m 5 -s $file && notify-send -i $icon --urgency low 'Screenshot Taken' || notify-send -i $icon 'failed to take screenshot'
+	fi
+
+	;;
+
+	cwin)
+	if [ "$2" = "copy" ]; then 
+	maim -u -m 5 -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png && notify-send -i $icon --urgency low 'Screenshot copied' || notify-send -i $icon 'failed to take screenshot'
+	else
+	maim -u -m 5 -i "$(xdotool getactivewindow)" $file && notify-send -i $icon --urgency low 'Screenshot Taken' || notify-send -i $icon 'failed to take screenshot'
+	fi
+
+	;;
+
+	full)
+	if [ "$2" = "copy" ]; then 
+	maim -u -m 5 | xclip -selection clipboard -t image/png && notify-send -i $icon --urgency low 'Screenshot copied' || notify-send -i $icon 'failed to take screenshot'
+	else
+	maim -u -m 5 $file && notify-send -i $icon --urgency low 'Screenshot Taken' || notify-send -i $icon 'failed to take screenshot'
+	fi
+	
+	;;
+
+	*)
+echo "Usage:
+  Screenshot [Options] [copy]
+
+Options:
+  area (selected area)
+  cwin (current window)
+  full (full screen)
+
+copy: 
+  add copy if you want to copy screenshot to clipboard"
+
+esac
+

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+time=$(date +\%H)
+
+if [ $time -gt 8 ]; then
+tmp=5500
+elif [ $time -gt 17 ]; then
+tmp=5000
+elif [ $time -gt 19 ]; then
+tmp=4500
+elif [ $time -gt 20 ]; then
+tmp=4000
+elif [ $time -gt 22 ]; then
+tmp=3500
+else 
+tmp=3000
+fi
+
+if [ "$1" = "on" ]; then 
+redshift -O $tmp
+elif [ "$1" = "off" ]; then
+redshift -x
+fi

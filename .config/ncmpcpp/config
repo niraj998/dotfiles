@@ -1,0 +1,78 @@
+#	Directories	#
+ncmpcpp_directory = "~/.config/ncmpcpp"
+lyrics_directory = "~/.local/share/lyrics"
+mpd_music_dir = "~/media/Music"
+
+#	behaviour or whatever	#
+execute_on_song_change = "bash ~/.config/ncmpcpp/notify"
+message_delay_time = "1"
+external_editor = nvim
+use_console_editor = yes
+display_volume_level = yes
+ignore_leading_the = yes
+centered_cursor = "yes"
+autocenter_mode = "yes"
+header_visibility = "no"
+
+# user_interface 		  = alternative
+
+#	Visualizer	#
+visualizer_data_source = /tmp/mpd.fifo
+visualizer_output_name = "mpd_visualizer"
+visualizer_in_stereo = "yes"
+visualizer_look = ◉◉
+visualizer_color = cyan, green, cyan, green, cyan, green, cyan, green, cyan, green
+visualizer_type = "spectrum"
+visualizer_spectrum_smooth_look = "yes"
+
+#	Progress	#
+progressbar_look = "▀▀▀" 
+progressbar_color = black:b
+progressbar_elapsed_color = green:b
+
+
+colors_enabled = "yes"
+
+# Alternative UI
+alternative_ui_separator_color = "black"
+alternative_header_first_line_format = $b$5«$/b$5« $b$8{%t}|{%f}$/b $5»$b$5»$/b 
+alternative_header_second_line_format = {$b{$2%a$9}{ - $7%b$9}{ ($2%y$9)}}|{%D}
+
+# Song list #
+# song_window_title_format = "Music"
+song_list_format = "  %t $R%a %l  "
+song_columns_list_format = "(53)[white]{tr} (45)[green]{a}"
+
+song_library_format = {{%a - %t} (%b)}|{%f}
+
+song_status_format = {$8%t} $8- {$8%a{ $8[%b{ (%y)]}} $8}|{$8%f}
+
+
+# song_status_format= "$7%t"
+# song_list_format = {$4%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
+# song_library_format = {%n - }{%t}|{%f}
+
+# alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+# alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+
+current_item_prefix = $(green)$r$b
+current_item_suffix = $/r$(end)$/b
+current_item_inactive_column_prefix = $(blue)$r
+current_item_inactive_column_suffix = $/r$(end)
+
+empty_tag_color = blue
+main_window_color = white
+statusbar_color = green
+statusbar_time_color = green:b
+
+playlist_display_mode = columns
+browser_display_mode = columns
+
+media_library_primary_tag = album_artist
+media_library_albums_split_by_date = no
+
+startup_screen = "media_library"
+
+clock_display_seconds = yes
+
+

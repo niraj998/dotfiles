@@ -1,0 +1,3 @@
+#!/bin/sh
+
+top -b -n1 | awk '/Cpu/  {print $2 + $4}'

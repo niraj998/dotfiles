@@ -1,0 +1,22 @@
+#!/bin/sh
+# author    niraj
+# github    niraj998
+
+chk="$(grep '^0.0.0.0' /etc/hosts)"
+
+case "$1" in
+  icon)
+  if [ -z "$chk" ]; then
+		echo "󰒘"
+	else 
+		echo "󰕥"
+	fi
+  ;;
+  *)
+if [ -z "$chk" ]; then
+  cat /home/niraj/.config/eww/scripts/hosts >> /etc/hosts
+	else	
+  sed -i '/^0.0.0.0/d' /etc/hosts
+	fi 
+  ;;
+esac

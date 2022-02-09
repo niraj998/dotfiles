@@ -1,0 +1,15 @@
+// This is for Bar only
+
+// Import Themes
+@import "./Themes/colors.scss";
+
+
+// I just replaced colors with colors from colorschemes. Require configuring to look good.
+// @import "./Themes/Nord.scss";
+// @import "./Themes/Catppuccin.scss";
+// @import "./Themes/Tokyonight.scss";
+// @import "./Themes/Gruvbox.scss";
+
+
+// rest of styling
+@import "bar/eww.scss";

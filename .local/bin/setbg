@@ -1,0 +1,4 @@
+#!/bin/sh
+# sets random wallpaper 
+
+feh -z --bg-scale ~/Pictures/Wallpapers/ 

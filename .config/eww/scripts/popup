@@ -1,0 +1,53 @@
+#!/bin/sh
+
+if [ "$1" = "cell" ]; then
+sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/dir cell
+elif [ "$1" = "usb" ]; then
+sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/dir usb
+elif [ "$1" = "bkp" ]; then
+sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/dir bkp
+elif [ "$1" = "up" ]; then
+sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/update Up
+elif [ "$1" = "srch" ]; then
+rofi -show drun
+elif [ "$1" = "brave" ]; then
+brave
+elif [ "$1" = "wifi" ]; then
+kityy -e nmtui
+elif [ "$1" = "thunar" ]; then
+thunar
+elif [ "$1" = "audio" ]; then
+pavucontrol
+elif [ "$1" = "spot" ]; then
+  spotify
+elif [ "$1" = "cal" ]; then
+  file=/tmp/ewwcal
+  if [ ! -f $file ]; then
+    touch $file
+    eww open calendar
+  else
+    rm $file
+    eww close calendar
+  fi
+elif [ "$1" = "wire"  ]; then
+kitty -e nmtui
+elif [ "$1" = "lib" ]; then
+ 	sh ~/.config/eww/dash/launch.sh && brave --new-tab https://libgen.li/
+elif [ "$1" = "git" ]; then
+ 	sh ~/.config/eww/dash/launch.sh && brave --new-tab https://github.com
+elif [ "$1" = "reddit" ]; then
+ 	sh ~/.config/eww/dash/launch.sh && brave --new-tab https://reddit.com
+elif [ "$1" = "youtube" ]; then
+ 	sh ~/.config/eww/dash/launch.sh && brave --new-tab https://youtube.com
+elif [ "$1" = "Dow" ]; then
+	sh ~/.config/eww/dash/launch.sh && thunar ~/Downloads &
+elif [ "$1" = "Doc" ]; then
+	sh ~/.config/eww/dash/launch.sh && thunar ~/Documents &
+elif [ "$1" = "Msc" ]; then
+	sh ~/.config/eww/dash/launch.sh && thunar ~/Music &
+elif [ "$1" = "Pic" ]; then
+	sh ~/.config/eww/dash/launch.sh && thunar ~/Pictures &
+elif [ "$1" = "Fm" ]; then
+	sh ~/.config/eww/dash/launch.sh && thunar ~ &
+fi
+

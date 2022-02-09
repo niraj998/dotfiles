@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# open and close music Visualizer and ncmpcpp with keybinding
+
+if [ "$1" = "visual" ]; then
+
+xdotool search --class Visualizer &>/dev/null && (ps x | grep "kitty --class Visualizer" | grep -v grep | awk '{print $1}' | xargs kill) || kitty --class Visualizer -o background_opacity=1 -o font_size=8 -o window_margin_width=0 -e cava &
+
+elif [ "$1" = "music" ]; then
+
+xdotool search --class Music &>/dev/null && (ps x | grep "kitty --class Music" | grep -v grep | awk '{print $1}' | xargs kill) || kitty --class Music -e ncmpcpp &
+
+fi

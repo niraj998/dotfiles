@@ -1,0 +1,28 @@
+#!/bin/sh
+#author   niraj
+#github   niraj998
+
+chk="$(bluetoothctl show | grep Powered | awk '{print $2}')"
+
+bticon () {
+
+[ $chk	= no ] && echo 󰂲 && exit
+
+bluetoothctl info >> /dev/null && echo 󰂱  || echo 󰂯  && exit
+}
+
+btname () {
+
+[ $chk = no ] && echo "Off" && exit
+
+name=$(bluetoothctl info | grep 'Name' | cut -d ':' -f2)
+bluetoothctl info >> /dev/null && echo $name || echo "On"  && exit
+
+}
+
+if [ "$1" = "icon"  ]; then
+bticon
+elif [ "$1" = "name" ]; then
+btname
+fi
+

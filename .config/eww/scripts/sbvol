@@ -1,0 +1,38 @@
+#!/bin/sh
+#author   niraj
+#github   niraj998
+
+icon() {
+
+[ $(pamixer --get-mute) = true ] && echo 󰝟 && exit
+
+vol="$(pamixer --get-volume)"
+
+if [ "$vol" -gt "70" ]; then
+	icon="󰕾"
+elif [ "$vol" -gt "30" ]; then
+	icon="󰖀"
+elif [ "$vol" -gt "0" ]; then
+	icon="󰕿"
+else
+        echo 󰝟 && exit
+fi
+
+echo "$icon"
+
+}
+
+percent() {
+
+pamixer --get-volume
+pactl subscribe | grep --line-buffered "Event 'change' on sink" | while read -r evt ;
+do pamixer --get-volume | cut -d " " -f1;
+done
+
+}
+
+[ "$1" = "up" ] && pamixer --allow-boost -i 1 && exit
+[ "$1" = "down" ] && pamixer --allow-boost -d 1 && exit
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "val" ] && pamixer --get-volume && exit
+[ "$1" = "percent" ] && percent 

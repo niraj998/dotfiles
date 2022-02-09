@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# this script is for gestures swiping 3 fingers left and right for previous and next workspace
+
+case $1 in
+  next)
+  bspc desktop -f next.local
+  ;;
+  prev)
+  bspc desktop -f prev.local
+esac
+

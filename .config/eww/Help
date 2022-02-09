@@ -1,0 +1,99 @@
+<-- Colors/ Fonts -->
+
+Install this Fonts
+Bar
+Museo Slab (https://www.dafontfree.io/museo-slab-font-free/)
+
+Dashboard
+Signika (https://fonts.google.com/specimen/Signika#standard-styles)
+
+Icon fonts
+FiracodeNerdfonts (https://www.nerdfonts.com/font-downloads)
+Feathericons (https://dropways.github.io/feathericons/)
+MaterialIcons (https://github.com/google/material-design-icons/)
+
+Change colors in Theme folder
+import them to eww.scss file in ~/.config/eww/eww.scss for bar
+and ~/.config/eww/dash/eww.scss for dashboard
+
+
+<-- how to open -->
+<-- install eww systemwide -->
+
+Bar on monitor 0
+eww open bar0
+
+Bar on monitor 1
+eww open bar1
+
+dashboard
+with launch script in dashboard
+
+<-- Troubleshoot -->
+
+<-- One or more of things is not showing proper value -->
+Note: 
+1. all scripts being use are in the scripts folder.
+2. I've set everything to upate every few minutes if you want changes to take effect immediately adjust script intervals in eww.yuck file
+
+Music:
+check script "music" it controls spotify if it's running and fallsback to mpd if you're not using both then configure it in music script.
+
+Volume:
+It's using Pulseaudio to increase decrease and get value make sure you have pamixer installed. lookinto "sbvol" script for more details. you can replace pulse scripts with alsa scripts to do same thing if you're using that
+
+Brightness: 
+It's using xbacklight, replace the scripts in "sbbri" to your own to do same thing 
+
+Battery: 
+Showing battery percent of "BAT0" if your's have different name replace name in sbbat
+
+Wifi/Ethernet:
+it's showing status and name of wifi on hower using nmcli, just run nmcli in your terminal, want to check more go to script "sbwifi" 
+
+Cpu:
+it's taking value from top command. edit "cpu" script to change
+
+Ram:
+it won't show cached memory only used memory, using free -m edit "ram" script to change
+
+Netspeed:
+it's not actually speed meter, it's showing changes in download and upload data since last time script was run so if you run it every second. it should be similar to speed per second. more in netstat script
+
+Weather: 
+you need to set up api first, check out instructions in "weather" script.
+
+profile:
+replace with your pic in images/profile.png
+change your name in dash/eww.yuck
+
+
+<-- One of this thing is not working at all -->
+Note: Everything that opens in outside window is in the script popup 
+
+Workspace:
+workspace script (scripts/workspace) works with my bspwm setup 
+if you have different things in bspwmrc this won't work
+
+Background of Dashboard:
+transperancy of eww-bgblur in picom.conf
+example:  
+opacity-rule = [
+  "30:class_g = 'eww-bgblur'" ,
+];
+
+Screenmanagement: 
+changing screens will mess your wallpaper, picom, eww bar
+add script to setwallpaper in (scripts/screen)
+
+adblock:
+This won't work at all without setting up.
+I have script to block which takes domains from hosts (in script folder) file and puts them in /etc/hosts to block them
+clicking off will remove those domains from /etc/hosts
+how does this work ?
+let's say you want to block facebook.com
+add 0.0.0.0 facebook.com to /etc/hosts and you won't be able to open facebook. until you remove that line
+I'm using hosts list from project https://github.com/StevenBlack/hosts.git to block adware and porn you can make your own blocklist and replace mine
+Note: you need sudo permission to makechanges in /etc/hosts 
+I've added this line to sudoers for this, you need to add yourself for it to work
+ALL ALL=NOPASSWD: /home/*user*/.config/eww/scripts/adblock
