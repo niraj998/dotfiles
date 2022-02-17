@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 # ╔╦╗ ╦ ╦ ╔═╗ ╦ ╔═╗
 # ║║║ ║ ║ ╚═╗ ║ ║  
@@ -28,7 +28,7 @@ Cover=/tmp/cover.png
 # if cover not found in metadata use this instead
 bkpCover=~/.config/eww/images/music.png
 # mpd music directory
-mpddir=~/Music
+mpddir=~/media/Music
 
 # ┌─┐┬  ┌─┐┬ ┬┌─┐┬─┐┌─┐┌┬┐┬    ┌─┐┌─┐┬─┐┬┌─┐┌┬┐┌─┐
 # ├─┘│  ├─┤└┬┘├┤ ├┬┘│   │ │    └─┐│  ├┬┘│├─┘ │ └─┐

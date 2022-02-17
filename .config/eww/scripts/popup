@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/dash
 
 if [ "$1" = "cell" ]; then
-sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/dir cell
+# kitty -e ~/.config/eww/scripts/dir cell
+sh ~/.config/rofi/mount/cellmount
 elif [ "$1" = "usb" ]; then
-sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/dir usb
+sh ~/.config/rofi/mount/mountusb
+# kitty -e ~/.config/eww/scripts/dir usb
 elif [ "$1" = "bkp" ]; then
 sh ~/.config/eww/dash/launch.sh && kitty -e ~/.config/eww/scripts/dir bkp
 elif [ "$1" = "up" ]; then
@@ -12,8 +14,6 @@ elif [ "$1" = "srch" ]; then
 rofi -show drun
 elif [ "$1" = "brave" ]; then
 brave
-elif [ "$1" = "wifi" ]; then
-kityy -e nmtui
 elif [ "$1" = "thunar" ]; then
 thunar
 elif [ "$1" = "audio" ]; then
@@ -31,6 +31,8 @@ elif [ "$1" = "cal" ]; then
   fi
 elif [ "$1" = "wire"  ]; then
 kitty -e nmtui
+elif [ "$1" = "wifi" ]; then
+  sh ~/.config/rofi/wifi/wifi
 elif [ "$1" = "lib" ]; then
  	sh ~/.config/eww/dash/launch.sh && brave --new-tab https://libgen.li/
 elif [ "$1" = "git" ]; then
@@ -49,5 +51,7 @@ elif [ "$1" = "Pic" ]; then
 	sh ~/.config/eww/dash/launch.sh && thunar ~/Pictures &
 elif [ "$1" = "Fm" ]; then
 	sh ~/.config/eww/dash/launch.sh && thunar ~ &
+elif [ "$1" = "side" ]; then
+	sh ~/.config/eww/dash/launch.sh
 fi
 

@@ -1,3 +1,5 @@
+@import "../Themes/Style.scss";
+
 * {
 all: unset;
 }
@@ -9,6 +11,9 @@ background: $black;
 button {
 border: 0px;
 background: none;
+}
+button:hover {
+  color: $green;
 }
 
 /************* workspaces ***********/
@@ -82,8 +87,9 @@ color: $red;
 background-color: $black1;
 border-radius: 10px 10px 10px 10px;
 padding: 1px 5px 1px 5px;
-margin: 0rem .05rem 0rem .05rem;
+margin: 0px 2px 0px 2px;
 }
+
 
 .control {
 font-family: $iconfont;

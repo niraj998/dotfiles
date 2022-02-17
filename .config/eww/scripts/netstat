@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 update() {
     sum=0

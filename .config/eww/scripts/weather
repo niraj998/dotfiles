@@ -1,20 +1,11 @@
-#!/bin/sh
-# author    niraj
-# github    niraj998
-
-
-# go here to get api  and documentation https://openweathermap.org/api
-
-
-# Documentation for weather quote below
+#!/bin/dash
 # https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
-# Documentation of Icons to use for weather
 # https://erikflowers.github.io/weather-icons/api-list.html
 
 updateweather() {
 [ -d /tmp/weather ] || mkdir /tmp/weather
-KEY="YourAPIKEY"
-ID="YOURCITYID"
+KEY="9cf6ec114acec80f4eaa10a50706f9b9"
+ID="1268295"
 UNIT="metric"
 weat=$(curl -sf "https://api.openweathermap.org/data/2.5/weather?id="$ID"&appid="$KEY"&units="$UNIT"")
 

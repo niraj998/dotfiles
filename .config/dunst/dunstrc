@@ -53,4 +53,6 @@
   foreground = "#1b1e25"
   timeout = 10
 
+[log_notifs]
+    script = ~/.config/dunst/scripts/dunst_logger.sh
 

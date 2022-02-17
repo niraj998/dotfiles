@@ -1,10 +1,7 @@
-#!/bin/sh
-#author   niraj
-#github   niraj998
+#!/bin/dash
 
 workspace0() {
 
-# you need this if you have dualscreens
 ws=$(wmctrl -d | awk '{print $9}' | head -n 1 ) 
 ws1=$ws
 ws2=$(($ws1 + 1 ))

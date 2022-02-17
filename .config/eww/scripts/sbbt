@@ -1,6 +1,4 @@
-#!/bin/sh
-#author   niraj
-#github   niraj998
+#!/bin/dash
 
 chk="$(bluetoothctl show | grep Powered | awk '{print $2}')"
 

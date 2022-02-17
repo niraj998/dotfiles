@@ -1,6 +1,4 @@
-#!/bin/sh
-#author   niraj
-#github   niraj998
+#!/bin/dash
 
 bat=/sys/class/power_supply/BAT0/
 per="$(cat "$bat/capacity")"

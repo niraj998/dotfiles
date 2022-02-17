@@ -14,6 +14,14 @@
 (defvar	brav "./images/Brave.png")
 (defvar	nvim "./images/Folder.png")
 
+(defwidget lnch []
+	(box :orientation "h" :space-evenly "false" :spacing 5 :class "backgrnd"
+  (button :tooltip "setting" :onclick "./scripts/popup side" :class "blue" "󰲽")  
+  (button :tooltip "Launcher" :onclick "./scripts/popup srch" :class "blue" "󰆌")
+  (button :tooltip "Brave" :onclick "./scripts/popup brave"  :class "blue" "󰊯" )
+;;  (button :tooltip "Thunar" :onclick "./scripts/popup thunar" :class "blue" "󰄫" )
+  ))
+
 ;; <-- Workspaces Monitor0 -->
 (defwidget workspc0 []
 	(literal :content workspaces0))
@@ -29,7 +37,7 @@
 ;; <-- Time	-->
 (defwidget sbtime []
 	(box	:orientation "h" :halign "end" :space-evenly "false" :spacing 2
-  (label	:class "green"	:text "󱑎")
+  (label	:class "blue"	:text "󱑎")
 	(label	:class "fnt"	:text sbtime)))
 
 (defpoll sbtime	:interval "45s"	"date '+%H:%M'")
@@ -37,7 +45,7 @@
 ;; <-- date	-->
 (defwidget sbdate []
 	(box	:orientation "h" :halign "end" :space-evenly "false" :spacing 5 
-	(label	:class "green"	:text "󰭦")
+	(label	:class "blue"	:text "󰭦")
 	(label	:class "fnt"	:text sbdatev)))
 
 (defpoll sbdatev	:interval "24h"	"date '+%d %b \(%a\)'")
@@ -48,13 +56,13 @@
 	(box :orientation "h" :space-evenly "false" :class "backgrnd"
 	(revealer :transition "slideright" :reveal mscex :duration "200ms"
 	(box :orientation "h"
-	(button :onclick "eww update mscex=false && eww update mscco=true" :class "green" "󰎅")))
+	(button :onclick "eww update mscex=false && eww update mscco=true" :class "blue" "󰎅")))
 	(revealer :transition "slideright" :reveal mscco :duration "200ms"
-	(box :orientation "h" :spacing 2 :space-evenly "false"
-	(button :onclick "eww update mscex=true && eww update mscco=false" :class "green" "󰎄")
-	(button :class "white"  :onclick "~/.config/eww/scripts/music previous" "󰅁" )
-	(button :class "white"  :onclick "~/.config/eww/scripts/music toggle" playpause )
-	(button :class "white"  :onclick "~/.config/eww/scripts/music next" "󰅂" )
+	(box :orientation "h" :spacing 3 :space-evenly "false"
+	(button :onclick "eww update mscex=true && eww update mscco=false" :class "blue" "󰎄")
+	(button :class "blue"  :onclick "~/.config/eww/scripts/music previous" "󰅁" )
+	(button :class "blue"  :onclick "~/.config/eww/scripts/music toggle" playpause )
+	(button :class "blue"  :onclick "~/.config/eww/scripts/music next" "󰅂" )
 	(label	:class "fnt"	:limit-width 20 :text playlist)
 	(label	:class "fnt"	:limit-width 20 :text title)))))
 
@@ -69,13 +77,13 @@
 	(box :orientation "h" :space-evenly "false" :halign "end" :class "backgrnd"
 	(revealer :transition "slideright" :reveal etcex :duration "200ms"
 	(box :orientation "h"
-	(button :onclick "eww update etcex=false && eww update etcco=true" :class "green" "󰬨")))
+	(button :onclick "eww update etcex=false && eww update etcco=true" :class "blue" "󰬨")))
 	(revealer :transition "slideright" :reveal etcco :duration "200ms"
 	(box :orientation "h" :spacing 5 :space-evenly "false"
 	(sbpkg)
 	(sbram)
 	(sbrfs)
-	(button :onclick "eww update etcex=true && eww update etcco=false" :class "green" "󰬪")))))
+	(button :onclick "eww update etcex=true && eww update etcco=false" :class "blue" "󰬪")))))
 
 (defvar etcex true)
 (defvar etcco false)
@@ -100,7 +108,7 @@
 ;; <-- Wifi	-->
 (defwidget sbnet []
   (box :space-evenly "false"
-  (button :class "yellow" :onclick "./scripts/popup wire" :tooltip wirename  wire)
+  (button :class "blue" :onclick "./scripts/popup wire" :tooltip wirename  wire)
   (eventbox	:onhover "eww update wifinm=true" 		:onhoverlost "eww update wifinm=false"
 	(box		:orientation "h"	:space-evenly "false"	:spacing 5
 	(revealer	:transition "slideright" :reveal wifinm		:duration "400ms"
@@ -119,7 +127,7 @@
 	(box		:orientation "h"	:space-evenly "false"	:spacing 5
 	(revealer	:transition "slideright" :reveal btnm		:duration "500ms"
 	(label 		:class "fnt" 	:text btname))
-	(button		:onclick "blueberry"	:class "green" btic))))
+	(button		:onclick "blueberry"	:class "blue" btic))))
 
 (defvar btnm false)
 (defpoll btic :interval "1s" "./scripts/sbbt icon")
@@ -128,7 +136,7 @@
 ;; <-- Brightness -->
 (defwidget bright []
 	(eventbox	:onscroll "./scripts/sbbri {}"
-  (label :class "pink" :text "󰃝" :tooltip brightnes )))
+  (label :class "blue" :text "󰃝" :tooltip brightnes )))
 
 (defpoll brightnes :interval "5m" "xbacklight -get | cut -d \".\" -f 1 " )
 (defvar bright false)
@@ -137,7 +145,7 @@
 (defwidget sbvol []
 	(eventbox	:onscroll "./scripts/sbvol {}"
 	(box		:orientation "h"	:space-evenly "false"
-	(button		:class "green"		:onclick "./scripts/popup audio" volicon)
+	(button		:class "blue"		:onclick "./scripts/popup audio" volicon)
 	(label		:class "fnt"		:text "${volv}%"))))
 
 (deflisten volv :initial "0" "./scripts/sbvol percent")
@@ -146,7 +154,7 @@
 ;; <-- Battery	-->
 (defwidget sbbat []
 	(box	:orientation "h"	:space-evenly "false" :class "backgrnd"
-	(label	:class "green"		:halign "end"		:text sbbat)
+	(label	:class "blue"		:halign "end"		:text sbbat)
 	(label	:class "fnt"		:halign "end"		:text "${batv}%")))
 
 (defpoll sbbat	:interval "10m"	"scripts/sbbat icon")
@@ -158,9 +166,9 @@
 	(box		:orientation "h"	:space-evenly "false" :vexpand "false" :class "backgrnd"
 	(revealer	:transition "slideright"	:reveal sbpower		:duration "550ms"
 	(box		:orientation "h"	:space-evenly "false"
-  (button		:class "yellow" :onclick "reboot"	"󰑐")
-	(button		:class "orange" :onclick "killall bspwm" "󰍃")
-	(button		:class "pink" :onclick "betterlockscreen -l"	"󰍁")))
+  (button		:class "red" :onclick "reboot"	"󰑐")
+	(button		:class "red" :onclick "killall bspwm" "󰍃")
+	(button		:class "red" :onclick "betterlockscreen -l"	"󰍁")))
 	(button		:class "red" :onclick "shutdown now"	"󰤆"))))
 
 (defvar sbpower false)
@@ -216,7 +224,7 @@
 
 (defwidget top1 []
 	(box	:orientation "h" :space-evenly "false" :valign "center"
-  (lunch)
+  (lnch)
 	(label  :class "white" :text "┃")
   (workspc1)
   (msc)))
@@ -229,7 +237,7 @@
 
 (defwidget top []
 	(box	:orientation "h" :space-evenly "false" :valign "center"
-  (lunch)
+  (lnch)
 	(label  :class "white" :text "┃")
   (workspc0)
   (msc)))

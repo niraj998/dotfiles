@@ -1,7 +1,4 @@
-#!/bin/sh
-# author    niraj
-# github    niraj998
-
+#!/bin/dash
 
 # this should only works with two screens
 
@@ -10,22 +7,34 @@ screen2=$(xrandr -q | grep "connected" | awk '/ connected/ {print $1}' | tail -n
 
 [ "$screen1" = "$screen2" ] && notify-send "Second display not available" && exit
 
+
+restart() {
+# Awesome WM
+# echo 'awesome.restart()' | awesome-client
+
+# BSPWM
+bspc wm -r
+
+}
+
+
 case $1 in 
 	laptop)
-	xrandr --output $screen1 --auto
-	xrandr --output $screen2 --off
-	bspc wm -r
+	xrandr --output $screen1 --auto 
+	xrandr --output $screen2 --off 
+  restart 
 	;;
 
 	monitor)
-	xrandr --output $screen2 --auto
-	xrandr --output $screen1 --off
-	bspc wm -r
+	xrandr --output $screen2 --auto 
+	xrandr --output $screen1 --off 
+  restart 
 	;;
 
 	dual)
-	xrandr --output $screen1 --auto
-	xrandr --output $screen2 --right-of $screen1 --auto
-	bspc wm -r
+	xrandr --output $screen1 --auto 
+	xrandr --output $screen2 --right-of $screen1 --auto 
+  restart 
+  ;;
 esac
 

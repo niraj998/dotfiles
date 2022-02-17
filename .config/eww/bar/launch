@@ -1,0 +1,4 @@
+#!/bin/dash 
+eww -c /home/niraj/.config/eww/ open bar0
+eww -c /home/niraj/.config/eww/ open bar1
+

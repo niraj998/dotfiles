@@ -38,6 +38,8 @@ super + n
 # visualizer
 super + v
 	sh ~/.local/bin/musicterm visual
+super + shift + a
+  sh ~/.config/eww/new/launch
 
 alt + m
 	sh ~/.config/rofi/music/music
@@ -50,6 +52,34 @@ alt + F2
 Print
   sh ~/.config/rofi/screenshot/screenshot
 
+
+
+
+super + e
+	thunar
+
+	
+# volume control
+XF86AudioLowerVolume
+	pamixer --allow-boost -d 5
+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 5
+XF86AudioMute
+  pamixer -t
+XF86AudioPlay
+	bash ~/.local/bin/music toggle
+XF86AudioPause
+	bash ~/.local/bin/music toggle
+XF86MonBrightnessUp
+	xbacklight -inc 15
+XF86MonBrightnessDown
+	xbacklight -dec 15
+XF86AudioPrev
+	bash ~/.local/bin/music previous
+XF86AudioNext
+	bash ~/.local/bin/music next
+XF86Search
+	rofi -show drun
 
 
 
@@ -76,9 +106,6 @@ super + y
 # swap the current node and the biggest window
 super + g
 	bspc node -s biggest.window
-
-super + e
-	thunar
 #
 # state/flags
 #
@@ -169,27 +196,4 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-	
-# volume control
-XF86AudioLowerVolume
-	pamixer --allow-boost -d 5
-XF86AudioRaiseVolume
-	pamixer --allow-boost -i 5
-XF86AudioMute
-        pamixer -t
-XF86AudioPlay
-	bash ~/.local/bin/music toggle
-XF86AudioPause
-	bash ~/.local/bin/music toggle
-XF86MonBrightnessUp
-	xbacklight -inc 15
-XF86MonBrightnessDown
-	xbacklight -dec 15
-XF86AudioPrev
-	bash ~/.local/bin/music previous
-XF86AudioNext
-	bash ~/.local/bin/music next
-XF86Search
-	rofi -show drun
-
 

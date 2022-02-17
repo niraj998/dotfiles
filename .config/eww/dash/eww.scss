@@ -1,16 +1,4 @@
-
-
-
-// Import Colors from Theme Folder
-
-// Import Theme
-@import "../Themes/colors.scss";
-
-// I just replaced colors with colors from colorschemes. Require configuring to look good.
-// @import "../Themes/Nord.scss";
-// @import "../Themes/Catppuccin.scss";
-// @import "../Themes/Tokyonight.scss";
-// @import "../Themes/Gruvbox.scss";
+@import "../Themes/Style.scss";
 
 // Everything
 * {
@@ -19,9 +7,14 @@ background-color: $black;
 font-family: $iconfont;
 }
 
+
 button {
 border: 0px;
 background: none;
+}
+
+button:hover {
+  color: $blue;
 }
 
 .Uifont {
@@ -71,10 +64,10 @@ color: $purple;
 font-family: $dashfont;
 }
 
-.teal {
-color: $teal;
-font-family: $dashfont;
-}
+// .teal {
+// color: $teal;
+// font-family: $dashfont;
+// }
 
 .white {
 color: $white;

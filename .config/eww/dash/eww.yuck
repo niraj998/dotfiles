@@ -6,7 +6,7 @@
 ;; <-- Background -->
 (defwidget bgblur []
 	(box 	:class "bg" 
-	(button	:onclick "./launch.sh" 
+	(button	:onclick "../launch.sh" 
 	(image	:path "${bg}"	:image-width wid	:image-height hig))))
 
 (defvar	bg "../images/teal.jpg")
@@ -34,7 +34,7 @@
 	(box	:orientation "v" :space-evenly "false"
 	(box	:orientation "h" :space-evenly "false" :spacing 15 :halign "center" :class "timefont"
 	(label	:class "green"	 :text hr)
-	(label	:class "teal"	 :text ":")
+	(label	:class "green"	 :text ":")
 	(label	:class "green" :text min))
 	(label	:class "dayfont" 	 :text dy)
 	(label	:class "daydate" 	 :text dt)))
@@ -165,7 +165,7 @@
 	(button :class "green"	:tooltip "DualScreen"	:onclick "../scripts/popup spot" "󰓇")
 	(button :class "red"	:tooltip "Nightlight"	:onclick "../scripts/popup youtube" 	"󰗃")))
 
-(defpoll quotes		:interval "12h"  "../scripts/quotes")
+;; (defpoll quotes		:interval "12h"  "../scripts/quotes")
 
 ;; <-- Adblock -->
 (defwidget adblock []

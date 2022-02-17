@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 X1=$(xrandr --current | grep '*' | awk '{print $1}' | cut -d 'x' -f1 | head -n 1)
 Y1=$(xrandr --current | grep '*' | awk '{print $1}' | cut -d 'x' -f2 | head -n 1)

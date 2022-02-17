@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 wifiicon() {
 [ $(cat /sys/class/net/w*/operstate) = down ] && echo 󰤭 && exit
@@ -24,7 +24,9 @@ nmcli | grep "^wl" | sed 's/\ connected\ to\ //g' | cut -d ':' -f2
 }
 
 wiredicon() {
-  [ "$(cat /sys/class/net/e*/operstate)" = "up" ] && echo 󰈀 
+  icon="󰈂"
+  [ "$(cat /sys/class/net/e*/operstate)" = "up" ] && icon="󰈀 "
+  echo $icon
 }
 wiredname() {
 nmcli | grep "^enp" | sed 's/\ connected\ to\ /Connected\ to\ /g' | cut -d ':' -f2
