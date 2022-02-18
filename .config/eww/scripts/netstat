@@ -1,4 +1,5 @@
 #!/bin/dash
+# thanks to Luke Smith
 
 update() {
     sum=0

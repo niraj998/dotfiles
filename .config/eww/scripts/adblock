@@ -1,20 +1,9 @@
 #!/bin/dash
 
-chk="$(grep '^0.0.0.0' /etc/hosts)"
+# author   niraj
+#github    niraj998
 
-# if [ "$1" = "icon" ]; then 
-# 	if [ -z $chk ]; then
-# 		echo "󰒘"
-# 	else 
-# 		echo "󰕥"
-# 	fi
-# else
-#   if [ -z $chk ]; then
-#   cat /home/niraj/.config/eww/scripts/hosts >> /etc/hosts
-# 	else	
-#   sed -i '/^0.0.0.0/d' /etc/hosts
-# 	fi 
-# fi
+chk="$(grep '^0.0.0.0' /etc/hosts)"
 
 case "$1" in
   icon)
