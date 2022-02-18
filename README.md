@@ -1,5 +1,5 @@
 ## Dotfiles
-###### Collection of my config files I use. If you have any suggestions, ideas, or issue. Create Issue/Pull Request, happy to learn more.
+###### Collection of my config files I use. If you have any suggestions, ideas, or issue. Create Issue/Pull Request, happy to learn more. if you like something and want to take it give credits.
 
 <p align="center">
 	<img src="https://github.com/niraj998/niraj998/blob/main/assets/dots/Screenshot.png" align="right" width="400px">
@@ -30,7 +30,7 @@ I tried to keep comments in config files for reference and for you to modify as 
 You probably have most of these this is everything I've used in configs.
 
 ```
-$ yay -Sy rofi playerctl mpc jq maim simple-mtpfs ffmpeg fuse2 wmctrl xclip pamixer bluez bluez-utils blueberry alsa-plugins alsa-utils alsa pulseaudio pulsemixer feh redshift mpd bspwm pacman-contrib --needed
+$ yay -Sy rofi playerctl mpc jq maim dash simple-mtpfs ffmpeg fuse2 wmctrl xclip pamixer bluez bluez-utils blueberry alsa-plugins alsa-utils alsa pulseaudio pulsemixer feh redshift mpd bspwm pacman-contrib --needed
 ```
 
 #### More Screenshots
