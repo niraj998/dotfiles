@@ -1,115 +1,322 @@
 @import "../Themes/Style.scss";
 
+$iconfont: FiraCode Nerd Font;
+
 * {
 all: unset;
 }
 
 window {
-background: $black;
+background: $blackdark;
 }
 
 button {
 border: 0px;
 background: none;
 }
-button:hover {
-  color: $green;
+
+
+// Search
+.launcher {
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.2rem 0.24rem 0.2rem;
+}
+.search {
+font-family:  $iconfont;
+color: $blue;
+padding: 0rem 0.3rem 0rem 0.3rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+font-size: 16;
 }
 
-/************* workspaces ***********/
-.works {
-background-color: $black1;
-padding: 2px 5px 2px 5px;
-border-radius: 8px 8px 8px 8px;
+// Music
+.music {
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.2rem 0.24rem 0.2rem;
 }
+
+.musicicon {
+font-family:  $iconfont;
+color: $blue;
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+font-size: 20;
+}
+
+.nexticon, .toggleicon, .previcon {
+color: $blue;
+font-family:  $iconfont;
+font-size: 19;
+}
+
+.playlist, .title {
+font-family: $font;
+font-size: 16;
+color: $white;
+padding: 0rem 0.2rem 0rem 0rem;
+margin: 0rem 0.2rem 0rem 0rem;
+}
+
+.time {
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+}
+
+.timeicon {
+font-family:  $iconfont;
+color: $blue;
+font-size: 19;
+}
+
+.timefont {
+font-family:  $font;
+color: $white;
+font-size: 15;
+}
+
+.date {
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+}
+.dateicon {
+font-family:  $iconfont;
+color: $blue;
+font-size: 19;
+}
+
+.timedate {
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.1rem 0.24rem 0.1rem;
+}
+
+.datefont {
+font-family:  $font;
+color: $white;
+font-size: 15;
+}
+
+
+.etc {
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.1rem 0.24rem 0.1rem;
+}
+
+.etcicon {
+font-family:  $iconfont;
+color: $blue;
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+font-size: 18;
+}
+
+.package {
+font-family:  $font;
+color: $white;
+font-size: 16;
+padding: 0rem 0rem 0rem 0.2rem;
+margin: 0rem 0rem 0rem 0.2rem;
+
+}
+.ram {
+font-family:  $font;
+color: $white;
+font-size: 16;
+padding: 0rem 0rem 0rem 0.2rem;
+margin: 0rem 0rem 0rem 0.2rem;
+
+}
+.reload {
+font-family:  $font;
+color: $white;
+font-size: 16;
+padding: 0rem 0rem 0rem 0.2rem;
+margin: 0rem 0rem 0rem 0.2rem;
+}
+
+.network{
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.1rem 0.24rem 0.1rem;
+}
+
+.internet {
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+}
+
+.ethicon, .wifiicon {
+font-family:  $iconfont;
+color: $blue;
+font-size: 18;
+}
+.wifiname {
+font-family:  $font;
+color: $white;
+font-size: 16;
+}
+
+.blueicon {
+font-family:  $iconfont;
+color: $blue;
+font-size: 18;
+}
+.bluename {
+font-family:  $font;
+color: $white;
+font-size: 16;
+}
+
+
+.sysbox {
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.1rem 0.24rem 0.1rem;
+padding: 0rem 0.2rem 0rem 0.2rem;
+//margin: 0rem 0.2rem 0rem 0.2rem;
+}
+
+.volicon, .briicon, .baticon {
+font-family:  $iconfont;
+color: $blue;
+font-size: 18;
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+}
+
+.volperc, .batperc {
+font-family:  $font;
+color: $white;
+font-size: 16;
+}
+
+.power{
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.1rem 0.24rem 0.1rem;
+}
+
+.shutdown, .restart, .lock, .logout {
+font-family:  $iconfont;
+color: $blue;
+font-size: 17;
+padding: 0rem 0.2rem 0rem 0.2rem;
+margin: 0rem 0.2rem 0rem 0.2rem;
+}
+
+.workspaces {
+background-color: $bluealt;
+border-radius: 0.4rem;
+margin: 0.24rem 0.1rem 0.24rem 0.1rem;
+padding: 0 1rem 0 1rem;
+}
+
+
+.focused {
+color: $yellow;
+font-family:  $iconfont;
+font-size: 19;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+}
+
+.occupied {
+color: $blue;
+font-family:  $iconfont;
+font-size: 19;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+}
+
+.urgent {
+color: $red;
+font-family:  $iconfont;
+font-size: 19;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+}
+
+.empty {
+color: $yellow;
+font-family:  $iconfont;
+font-size: 19;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+}
+
+
+
+
 
 /* unoccupied */
 .0 {
 color: $grey;
+font-family:  $iconfont;
+//color: $blue;
+font-size: 20;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+
 }
 /* occupied */
 .01, .02, .03, .04, .05, .06, .07, .08, .09, .00, {
-color: $white;
+color: $purple;
+font-family:  $iconfont;
+//color: $blue;
+font-size: 20;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+
 }
 
 /* focused */
 
 .011, .066, {
-color: $orange;
+//color: $orange;
+font-family:  $iconfont;
+color: $blue;
+font-size: 20;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
 }
 .022, .077 {
-color: $purple;
+//color: $purple;
+font-family:  $iconfont;
+color: $blue;
+font-size: 20;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+
+
 }
 .033, .088 {
-color: $yellow;
+//color: $yellow;
+font-family:  $iconfont;
+color: $blue;
+font-size: 20;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+
 }
 .044, .099 {
-color: $green;
+//color: $green;
+font-family:  $iconfont;
+color: $blue;
+font-size: 20;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
+
 }
 .055, .000 {
-color: $blue;
-}
-
-
-.iconfont {
+//color: $blue;
 font-family:  $iconfont;
-font-size: 22;
-}
-
-.fnt {
-font-family: $font;
-font-size: 18;
-color: $white;
-}
-
-.blue {
 color: $blue;
-}
-
-.pink {
-color: $pink;
-}
-
-.green {
-color: $green;
-}
-.yellow {
-color: $yellow;
-}
-.orange {
-color: $orange;
-}
-.red {
-color: $red;
-}
-
-.backgrnd {
-background-color: $black1;
-border-radius: 10px 10px 10px 10px;
-padding: 1px 5px 1px 5px;
-margin: 0px 2px 0px 2px;
-}
-
-
-.control {
-font-family: $iconfont;
 font-size: 20;
-background-color: $black1;
-border-radius: 10px 10px 10px 10px;
-}
-
-.powermenu {
-font-family:  $iconfont;
-font-size: 20;
-background-color: $black1;
-border-radius: 10px 10px 10px 10px;
-}
-
-.stime {
-font-family: $iconfont;
-font-size: 18;
-background-color: $black1;
-border-radius: 10px 10px 10px 10px;
+padding: 0rem 0.1rem 0rem 0.1rem;
+margin: 0rem 0.1rem 0rem 0.1rem;
 }
 
 // Calendar
@@ -141,4 +348,3 @@ font-weight: bold;
 calendar.button, .highlight  {
 color: $green;
 }
-

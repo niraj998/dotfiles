@@ -1,0 +1,165 @@
+configuration {
+    font: "Inter Regular 10";
+    sidebar-mode: true;
+    show-icons: true;
+    fullscreen: false;
+    threads: 0;
+    matching: "fuzzy";
+    scroll-method: 0;
+    monitor: "primary";
+    modi: "window,run,ssh,drun,combi";
+    combi-hide-mode-prefix: true;
+    combi-modi: "drun,ssh,keys,run";
+}
+
+
+@theme "/dev/null"
+* {
+    transparent: #00000000;
+    fg: #D8DEE9;
+//    bgsel: #15181E;
+    bgsel: #252931;
+    fgsel: #61AFEF;
+    bg: #1E222A;
+    bgalt: #252931;
+    urgent: #D46489;
+}
+
+window {
+    background-color: @bg;
+    text-color: @fg;
+    location: west;
+    anchor: west;
+    y-offset: 30;
+    height: 100%;
+    width: 350px;
+    orientation: vertical;
+}
+
+prompt {
+    enabled: false;
+}
+
+button {
+    action: "ok";
+    str: " ";
+    font: "FantasqueSansMono Nerd Font 16";
+    expand: false;
+    text-color: @fg;
+    background-color: @bgalt;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+entry {
+    font: "Inter Regular 12";
+    background-color: @bgalt;
+    text-color: @fg;
+    expand: true;
+    vertical-align: 0.5;
+    horizontal-align: 0;
+    placeholder: "Global Search";
+    placeholder-color: @fg;
+    blink: true;
+}
+
+entry-wrapper {
+    orientation: horizontal;
+    margin: 0 12px 0 12px;
+    spacing: 24px;
+    vertical-align: 0.5;
+    background-color: @bgalt;
+    children: [ button, entry ];
+}
+
+inputbar {
+    padding: 14px;
+    margin: 10px 10px 14px 10px;
+    background-color: @bgalt;
+    text-color: @fg;
+    expand: false;
+    border-radius: 9px;
+    position: north;
+    children: [ entry-wrapper ];
+}
+
+listview {
+    background-color: @bg;
+    spacing: 0;
+    cycle: true;
+    dynamic: true;
+    scrollbar: true;
+}
+
+mainbox {
+    width: 200px;
+    expand: true;
+    spacing: 12px;
+    padding: 5px;
+    background-color: @bg;
+    children: [ inputbar, listview ];
+}
+
+scrollbar {
+    background-color: @bgalt;
+    handle-width: 0;
+    margin: 0 0 5px 0;
+    border-radius: 9px;
+}
+
+element {
+    background-color: @transparent;
+    text-color: @fg;
+    orientation: horizontal;
+    border: 0;
+    border-color: @fg;
+    border-radius: 6px;
+    spacing: 24px;
+    margin: 0px 12px 0px 12px;
+    padding: 10px 24px 10px 24px;
+}
+
+element-icon {
+    size: 24px;
+    border: 0;
+    border-color: @transparent;
+    background-color:	inherit;
+    text-color:		inherit;
+}
+
+element-text {
+    font: "Inter Regular 11";
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    background-color:	inherit;
+    text-color:		inherit;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color: @urgent;
+    text-color: @fg;
+    border-radius: 9px;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: @background-active;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @bgsel;
+    text-color: @fgsel;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @fgsel;
+}
+
+element selected.active {
+    background-color: @bgsel;
+    color: @fgsel;
+}

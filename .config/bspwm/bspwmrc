@@ -1,20 +1,20 @@
 #! /bin/sh
 
-color0=#2FFFE3
-color1=#db005f
-color2=#fee440
-color3=#05e289
+color0=#545862
+color1=#C678DD
+color2=#7EC7A2
+color3=#61AFEF
 color4=#D8DEE9
 
 bspc monitor eDP1 -d 1 2 3 4 5
 bspc monitor HDMI1 -d 6 7 8 9 0
 
-bspc config border_width        0
-bspc config top_padding         0
+bspc config border_width        2
+bspc config top_padding         30
 bspc config right_padding       0
 bspc config left_padding        0
 bspc config bottom_padding      0
-bspc config window_gap          5
+bspc config window_gap          0
 bspc config top_monocle_padding  0
 bspc config right_monocle_padding 0
 bspc config left_monocle_padding 0
@@ -25,20 +25,26 @@ bspc config normal_border_color  "$color1"
 bspc config active_border_color  "$color2"
 bspc config presel_feedback_color "$color4"
 bspc config split_ratio          0.60
-bspc config borderless_monocle   true  
+bspc config borderless_monocle   true
 bspc config gapless_monocle      false
 bspc config focus_follows_pointer true
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+
+start() {
+  if ! pgrep -f $1 ;
+  then
+    $@&
+  fi
+}
+
+start sxhkd
 feh -z --bg-scale ~/media/Pictures/Wallpapers/ &
 eww --restart open bar0 &
 eww open bar1 &
-libinput-gestures-setup start &
-dunst &
-pgrep -x picom >/dev/null || picom &
+start libinput-gestures-setup start &
+start dunst &
+start picom --experimental-backends --config $HOME/.config/bspwm/configs/picom.conf
 bspc desktop -f ^1 &
 mpd &
-pgrep bspswallow || sh ~/.local/bin/bspswallow &
+start bspswallow
 xsetroot -cursor_name left_ptr
-
-
