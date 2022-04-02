@@ -3,7 +3,7 @@
 	<img src="https://github.com/niraj998/niraj998/blob/main/assets/dots/Screenshot.png" align="right" width="400px">
 </p>
 
-###### Collection of my config files I use. If you have any suggestions, ideas, or issue. Create Issue/Pull Request, happy to learn more. if you like something and want to take it for yourself give credits.
+###### Collection/Backup of my config files I use. If you have any suggestions, ideas, or issue. Create Issue/Pull Request, happy to learn more. if you like something and want to take it for yourself give credits.
 
 #### Programs I Use/Configs for.
 
