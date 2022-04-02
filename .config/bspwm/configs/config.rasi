@@ -1,5 +1,5 @@
 configuration {
-    font: "Inter Regular 10";
+    font: "FiraSans 10";
     sidebar-mode: true;
     show-icons: true;
     fullscreen: false;
@@ -52,13 +52,13 @@ button {
 }
 
 entry {
-    font: "Inter Regular 12";
+    font: "FiraSans 12";
     background-color: @bgalt;
     text-color: @fg;
     expand: true;
     vertical-align: 0.5;
     horizontal-align: 0;
-    placeholder: "Global Search";
+    placeholder: "Search";
     placeholder-color: @fg;
     blink: true;
 }
@@ -128,7 +128,7 @@ element-icon {
 }
 
 element-text {
-    font: "Inter Regular 11";
+    font: "FiraSans 11";
     expand: true;
     horizontal-align: 0;
     vertical-align: 0.5;
