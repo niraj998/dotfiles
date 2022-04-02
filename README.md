@@ -46,8 +46,8 @@ You probably have most of these this is everything I've used in configs.
   cd .config
    [ -d "$HOME/.config/bspwm" ] &&  mv $HOME/.config/bspwm  $HOME/.config/bspwm.old
    [ -d "$HOME/.config/eww" ] && mv $HOME/.config/eww  $HOME/.config/eww.old
-   [ -d "$HOME/.config/sxhkd" ] && mv $HOME/.config/sxhkd/ $HOME/.config/sxhkd.old
-   [ -d "$HOME/.config/rofi" ] && mv $HOME/.config/rofi/ $HOME/.config/rofi.old
+   [ -d "$HOME/.config/sxhkd" ] && mv $HOME/.config/sxhkd $HOME/.config/sxhkd.old
+   [ -d "$HOME/.config/rofi" ] && mv $HOME/.config/rofi $HOME/.config/rofi.old
    cp -r bspwm $HOME/.config/
    cp -r eww $HOME/.config/
    cp -r rofi $HOME/.config/
