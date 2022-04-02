@@ -4,13 +4,13 @@
 
 # terminal
 super + Return
-	kitty 
+	$TERMINAL
 
 # launcher
 # super + r
 # 	rofi -show drun
 
-# reload sxhkd 
+# reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -19,7 +19,7 @@ super + w
 	brave
 
 # screenshot
-super + p 
+super + p
 	sh ~/.local/bin/screenshot full
 
 super + shift + p
@@ -27,7 +27,7 @@ super + shift + p
 
 # dashboard
 super + d
-	rofi -show drun
+	rofi -config ~/.config/bspwm/configs/config.rasi -show drun
 super + shift + d
 	sh ~/.config/eww/dash/launch.sh
 
@@ -58,7 +58,7 @@ Print
 super + e
 	thunar
 
-	
+
 # volume control
 XF86AudioLowerVolume
 	pamixer --allow-boost -d 5
@@ -196,4 +196,3 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-

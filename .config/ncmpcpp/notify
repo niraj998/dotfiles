@@ -4,4 +4,9 @@ Song="$(~/.local/bin/music title)"
 Artist="$(~/.local/bin/music artist)"
 Playlist="$(~/.local/bin/music playlist)"
 
-dunstify -i $(~/.local/bin/music coverloc) "($Playlist)$Song" "$Artist"
+if [ -n "$(pgrep awesome)"  ]; then
+echo  'sb_music()' | awesome-client
+echo  'updatencmpcpp()' | awesome-client
+fi
+
+notify-send -i $(~/.local/bin/music coverloc) "($Playlist)$Song" "$Artist"

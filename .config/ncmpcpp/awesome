@@ -1,0 +1,5 @@
+#!/bin/sh
+
+
+echo  'sb_music()' | awesome-client
+echo  'updatencmpcpp()' | awesome-client
