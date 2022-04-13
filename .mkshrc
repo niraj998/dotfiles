@@ -1,0 +1,12 @@
+PS1='#'; (( USER_ID )) && PS1=; PS1=$'\001\r''${|
+\\builtin typeset e=$?
+(( e )) && REPLY+=$( print -n  "\033[31m $e\033[00m") || REPLY+=$( print -n "\033[34m\033[00m" )
+\\builtin typeset d=${PWD:-?}/ p=~; [[ $p = ?(*/) ]] || d=${d/#$p\//\~/}
+d=${d%/}; \\builtin typeset m=${%d} n p=...; (( m > 0 )) || m=${#d}
+(( m > (n = (COLUMNS/3 < 7 ? 7 : COLUMNS/3)) )) && d=${d:(-n)} || p=
+REPLY+=$(print -n "\033[1;34m mksh $p$d \033[00m" )
+\\builtin return $e
+} '"$PS1 "
+
+source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
