@@ -5,8 +5,8 @@ Artist="$(~/.local/bin/music artist)"
 Playlist="$(~/.local/bin/music playlist)"
 
 if [ -n "$(pgrep awesome)"  ]; then
-echo  'sb_music()' | awesome-client
-echo  'updatencmpcpp()' | awesome-client
+   echo  'sb_music()' | awesome-client
+   echo  'updatencmpcpp()' | awesome-client
 fi
 
 notify-send -i $(~/.local/bin/music coverloc) "($Playlist)$Song" "$Artist"

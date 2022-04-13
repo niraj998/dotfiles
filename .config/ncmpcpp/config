@@ -1,7 +1,7 @@
 # Directories #
 ncmpcpp_directory = "~/.config/ncmpcpp"
 lyrics_directory = "~/.local/share/lyrics"
-mpd_music_dir = "~/media/Music"
+mpd_music_dir = "/media/Music"
 
 # behaviour #
 execute_on_song_change = "sh $HOME/.config/ncmpcpp/notify"
@@ -13,8 +13,9 @@ ignore_leading_the = yes
 centered_cursor = "no"
 autocenter_mode = "no"
 header_visibility = "no"
+statusbar_visibility     = "yes"
 
-#	Visualizer	#
+# Visualizer #
 visualizer_data_source = /tmp/mpd.fifo
 visualizer_output_name = "mpd_visualizer"
 visualizer_in_stereo = "yes"
@@ -23,13 +24,14 @@ visualizer_color = cyan, green, cyan, green, cyan, green, cyan, green, cyan, gre
 visualizer_type = "spectrum"
 visualizer_spectrum_smooth_look = "yes"
 
-#	Progress	#
+# Progress #
 progressbar_look = "▄▄▄"
+#progressbar_look = "▂▂▂"
+
+#progressbar_look = "=#="
 progressbar_color = black:b
 progressbar_elapsed_color = blue:b
 colors_enabled = "yes"
-
-statusbar_visibility     = "no"
 
 # Song list #
 song_list_format = "  %t $R%a %l  "

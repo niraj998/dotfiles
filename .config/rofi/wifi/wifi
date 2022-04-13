@@ -70,7 +70,7 @@ pass=$(printf "$nopass\nCancel" | rofi -config $rofipass -dmenu -i -hover-select
 if [ "$pass" = "" ]; then
   exit
 elif [ "$pass" = "$nopass" ]; then
-  nmcli dev wifi con "$wifi" && printf "exit" | rofi -config $rofiprompt -dmenu -only-match -i -p "Successfully Connected to $wifi" && exit
+  nmcli dev wifi con "$wifi" && printf "exit" | rofi -config $rofiprompt -dmenu -i -only-match -p "Successfully Connected to $wifi" && exit
 elif [ "$pass" = "Cancel" ]; then
   exit
 else

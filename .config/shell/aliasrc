@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+alias updatedb="sudo updatedb"
+alias suspend="sudo systemctl suspend"
+alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
+alias shutdown="sudo shutdown"
+alias umount="sudo umount -l"
+alias mount="sudo mount"
+alias pacman="sudo pacman"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+alias bc="bc -ql"
+alias mkd="mkdir -pv"
+alias yt="yt-dlp --embed-metadata -i"
+alias yta="yt -x -f bestaudio/best"
+alias ffmpeg="ffmpeg -hide_banner"
+alias ls="ls -hN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias ccat="highlight --out-format=ansi"
+alias ip="ip -color=auto"
+alias lf="lfub"
+alias ka="killall"
+alias g="git"
+alias v="$EDITOR"
+alias p="pacman"
+alias z="zathura"
+alias l="clear"
+alias lf="lfub"
