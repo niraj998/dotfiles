@@ -1,22 +1,6 @@
-# Luke's config for the Zoomer Shell
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-# PROMPT_COMMAND=__prompt_command    # Function to generate PS1 after CMDs
-# __prompt_command() {
-#     local EXIT="$?"                # This needs to be first
-#   PS1=""
-#
-#     if [ $EXIT != 0 ]; then
-#        PS1+="%F  $EXIT\033[00m"
-#    else
-#        PS1+="\033[34m\033[00m"
-#    fi
-#        PS1+="\033[1;34m \w  \033[00m"
-#}
 
 precmd() {
     local EXIT="$?"                # This needs to be first
@@ -40,9 +24,7 @@ SAVEHIST=10000000
 HISTFILE=~/.config/zsh/history
 
 # Load aliases and shortcuts if existent.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -98,6 +80,5 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-. "/home/niraj/.local/share/cargo/env"
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null

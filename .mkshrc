@@ -8,5 +8,4 @@ REPLY+=$(print -n "\033[1;34m mksh $p$d \033[00m" )
 \\builtin return $e
 } '"$PS1 "
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
