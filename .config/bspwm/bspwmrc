@@ -38,13 +38,12 @@ start() {
 }
 
 start sxhkd
-feh -z --bg-scale ~/media/Pictures/Wallpapers/ &
+feh -z --bg-scale $HOME/.config/bspwm/configs/wallpaper/ &
 eww --restart open bar0 &
 eww open bar1 &
 start libinput-gestures-setup start &
 start dunst &
 start picom --experimental-backends --config $HOME/.config/bspwm/configs/picom.conf
 bspc desktop -f ^1 &
-mpd &
 start bspswallow
 xsetroot -cursor_name left_ptr
