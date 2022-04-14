@@ -1,4 +1,3 @@
-
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 
@@ -6,7 +5,6 @@ precmd() {
     local EXIT="$?"                # This needs to be first
     PS1=""
     if [ $EXIT != 0 ]; then
-#        PS1+="%F[red] $EXIT\033[00m"
 	PS1+="%F{red} $EXIT%f"
     else
         PS1+="%F{blue}%f"
@@ -23,7 +21,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.config/zsh/history
 
-# Load aliases and shortcuts if existent.
+# Load aliases if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # Basic auto/tab complete:
@@ -81,4 +79,4 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
