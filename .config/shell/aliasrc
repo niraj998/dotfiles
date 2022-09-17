@@ -1,24 +1,54 @@
 #!/bin/sh
 
-# Use neovim for vim if present.
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
-# Use $XINITRC variable if file exists.
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+if [ -x "$(command -v pacman)" ]; then
+  alias pacman="sudo pacman"
+  alias pacQq="pacman -Qq"
 
-alias updatedb="sudo updatedb"
+elif [ -x "$(command -v emerge)" ]; then
+  alias emerge="sudo emerge"
+  alias emaint="sudo emaint"
+  alias dispatch-conf="sudo dispatch-conf"
+  alias emerge-webrsync="sudo emerge-webrsync"
+  alias genkernel="sudo genkernel"
+
+elif [ -x "$(command -v zypper)" ]; then
+  alias zypper="sudo zypper --color -v -s 4"
+
+elif [ -x "$(command -v xbps-install)" ]; then
+  alias xbps-install="sudo xbps-install -Sfv"
+  alias xbps-remove="sudo xbps-remove -Rov"
+  alias xbps-up="sudo xbps-install -Suv"
+  alias xbps-qr="xbps-query -Rs"
+  alias xbps-pkglist="xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname"
+
+elif [ -x "$(command -v apt)" ]; then
+  alias apt="sudo apt"
+
+elif [ -x "$(command -v dnf)" ]; then
+  alias dnf="sudo dnf"
+  alias yum="sudo yum"
+
+fi
+
+# Power
 alias suspend="sudo systemctl suspend"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias shutdown="sudo shutdown"
+
+# Mounting
 alias umount="sudo umount -l"
 alias mount="sudo mount"
-alias pacman="sudo pacman"
+
+# Files
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -vI"
-alias bc="bc -ql"
 alias mkd="mkdir -pv"
+
+alias updatedb="sudo updatedb"
+alias bc="bc -ql"
 alias yt="yt-dlp --embed-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias ffmpeg="ffmpeg -hide_banner"
@@ -35,3 +65,11 @@ alias p="pacman"
 alias z="zathura"
 alias l="clear"
 alias lf="lfub"
+
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
